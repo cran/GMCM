@@ -1,4 +1,4 @@
-5bc73fbd3a0cbeff632b7cacc829aa38 *DESCRIPTION
+1a1d4063f1e819ab72e2133f5bd9f41d *DESCRIPTION
 da0b5f4f3122642156ce6e558f2a351c *NAMESPACE
 9c10faf6337012e67ee54b4412c7cb81 *R/EMAlgortihm.R
 d42779c67785c6ae9a1118599809cbbb *R/EStep.R
@@ -7,7 +7,7 @@ d42779c67785c6ae9a1118599809cbbb *R/EStep.R
 816c99f4f605b9c95738645c1865b2dc *R/PseudoEMAlgorithm.R
 35df5bfcbfb53f31b18b6654ec1f6cac *R/RcppExports.R
 ff77db6b57b05248cc122153e8e76640 *R/SimulateGMCMData.R
-d33d388dc15e411d932f9c5c1896a5b9 *R/SimulateGMMData.R
+8eef07a1089165c05aff1bada2d0fd5f *R/SimulateGMMData.R
 6fa037e29455e6e239450c4d16eab3d8 *R/Uhat.R
 832ca2d1175e4abe81b742984e238c65 *R/choose.theta.R
 6c691e822bb8e97fc7d36b9842d36580 *R/colSds.R
@@ -36,12 +36,12 @@ a77d01dd3c1eabf3f514b0d33dcf73a0 *R/rowSds.R
 80a0cc1ffd0f51b78515e4cb94a45271 *R/theta2vector.R
 de61536b02252587a95a07e82178e50f *R/tt.R
 354f410a21128d18ce76fdd21a185174 *R/vector2theta.R
-d82b92c4be57322181d00b2872ff4d46 *README.md
+74e9deee2afde6be303b05aa16dd590e *README.md
 e014d967d30669324343e492c3ea71b4 *data/datalist
 c5792962bb8f86493981faf1c600c98f *data/freshVsFrozen.RData
 fca63c21429d21bb11e09106eaea7a84 *data/u133VsExon.RData
 53da96a93579fc6f2054d8679e8ad33b *inst/CITATION
-ab219ba29f89308f2339ddb0967710b4 *inst/NEWS.Rd
+e6e0021e318e7142fb8bf402c58df3fb *inst/NEWS.Rd
 2b613164c6b3c95bfb5c43284f72d17f *inst/tests/test-EMAlgorithm.R
 1cf4a39ae08360d6694cf0f32847c84c *inst/tests/test-EStep.R
 5e332537190cc3558be13df9a8cc4173 *inst/tests/test-MStep.R
@@ -60,7 +60,7 @@ ccb7a3786aa82253b7b3c637bbb3b15b *inst/tests/test-dgmm.loglik.marginal.R
 9bfa1172fe930279ec3c9471bb2b210a *inst/tests/test-logit-inv.logit.R
 f4c3b57c5d1e6b3ca928b7e132925ba7 *inst/tests/test-meta.gmcm.loglik.R
 63670831f4574faad3eb812f8a378f4a *inst/tests/test-pgmm.marginal.R
-2ee44744865a21bf9c3577a17d865c3a *inst/tests/test-qgmm.marginal.R
+855eff6afd3d6bc9a5465127463e3f74 *inst/tests/test-qgmm.marginal.R
 09d67d98d0e075de1743469733883fe9 *inst/tests/test-rho.transform-inv.rho.transform.R
 6c01fe648682baa0bb336bd269a2129c *inst/tests/test-tt-inv.tt.R
 bff6946de015b74c8896a73e4ce30603 *man/EMAlgorithm.Rd
