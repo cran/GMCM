@@ -6,6 +6,38 @@
 
 using namespace Rcpp;
 
+// colSdsArma
+arma::rowvec colSdsArma(const arma::mat& X, const int norm_type = 0);
+RcppExport SEXP GMCM_colSdsArma(SEXP XSEXP, SEXP norm_typeSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP );
+        Rcpp::traits::input_parameter< const int >::type norm_type(norm_typeSEXP );
+        arma::rowvec __result = colSdsArma(X, norm_type);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// rowSdsArma
+arma::colvec rowSdsArma(const arma::mat& X, const int norm_type = 0);
+RcppExport SEXP GMCM_rowSdsArma(SEXP XSEXP, SEXP norm_typeSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP );
+        Rcpp::traits::input_parameter< const int >::type norm_type(norm_typeSEXP );
+        arma::colvec __result = rowSdsArma(X, norm_type);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // dmvnormal
 arma::mat dmvnormal(arma::mat& x, arma::rowvec mu, arma::mat sigma);
 RcppExport SEXP GMCM_dmvnormal(SEXP xSEXP, SEXP muSEXP, SEXP sigmaSEXP) {
@@ -107,6 +139,24 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< Rcpp::List >::type sigmas(sigmasSEXP );
         Rcpp::traits::input_parameter< Rcpp::NumericVector >::type pie(pieSEXP );
         arma::mat __result = pgmm_marginal(z, mus, sigmas, pie);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// EStepRcpp
+arma::mat EStepRcpp(arma::mat& z, Rcpp::List mus, Rcpp::List sigmas, Rcpp::NumericVector pie);
+RcppExport SEXP GMCM_EStepRcpp(SEXP zSEXP, SEXP musSEXP, SEXP sigmasSEXP, SEXP pieSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< arma::mat& >::type z(zSEXP );
+        Rcpp::traits::input_parameter< Rcpp::List >::type mus(musSEXP );
+        Rcpp::traits::input_parameter< Rcpp::List >::type sigmas(sigmasSEXP );
+        Rcpp::traits::input_parameter< Rcpp::NumericVector >::type pie(pieSEXP );
+        arma::mat __result = EStepRcpp(z, mus, sigmas, pie);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
