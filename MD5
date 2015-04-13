@@ -1,4 +1,4 @@
-7197dfc490b6df989817bd3bd408948f *DESCRIPTION
+efc68e36c0a9dfc0618f8dce8ca59a12 *DESCRIPTION
 9d212a095d179a417e7e2a0cf3bc80f7 *NAMESPACE
 1699f64c43c4e55b2a3152dda156d09b *R/EMAlgortihm.R
 d42779c67785c6ae9a1118599809cbbb *R/EStep.R
@@ -24,7 +24,7 @@ fae7669cdb276eb60bb0f63ca2de0165 *R/fit.full.GMCM.R
 649a02950a207b744e8400b9ad84a5a2 *R/inv.logit.R
 5195b35a7342ddd91f9a5cdd332564d6 *R/inv.rho.transform.R
 c94c949608de47dcff56df394703078e *R/inv.tt.R
-33ce452129530e91845c59019cba27c8 *R/is.theta.R
+71cae2964196431976ae0b1b57ca5ea9 *R/is.theta.R
 10cabbaab9f60cf9e539bdcd22f6bbf4 *R/logit.R
 37dc3abab2f6b98d4ea7637f924a7286 *R/meta.gmcm.loglik.R
 ef96dc532e43f2bb7902171a460bccdc *R/meta2full.R
@@ -42,10 +42,10 @@ e014d967d30669324343e492c3ea71b4 *data/datalist
 c5792962bb8f86493981faf1c600c98f *data/freshVsFrozen.RData
 fca63c21429d21bb11e09106eaea7a84 *data/u133VsExon.RData
 687c149e57b6d6692d55d0cb0c8e9d19 *inst/CITATION
-a817e49d5f6bb93f72b75d5ae7c841ec *inst/NEWS.Rd
+6f77b71723a21ae0c63ed28761d50190 *inst/NEWS.Rd
 65d723f096b25160fcfb1974240e121b *inst/doc/GMCM-JStatSoft.R
 7dd9d28859c81d8ec430b15df6d39767 *inst/doc/GMCM-JStatSoft.Rnw
-3be9374b087b626723e4e440f867e890 *inst/doc/GMCM-JStatSoft.pdf
+25c5e6e76e67bc6a3be8b28606cc9e39 *inst/doc/GMCM-JStatSoft.pdf
 55263dab580c11ba14800b18e88f7b24 *inst/tests/test-EMAlgorithm.R
 78323245c287d4b9ae30770d618ce723 *inst/tests/test-EStep.R
 5e332537190cc3558be13df9a8cc4173 *inst/tests/test-MStep.R
@@ -60,7 +60,7 @@ a87c84aabe24d5a324c5531c1c86ba2a *inst/tests/test-cummean.R
 ccb7a3786aa82253b7b3c637bbb3b15b *inst/tests/test-dgmm.loglik.marginal.R
 56de900ea5d885cef80b2ca6b62d437f *inst/tests/test-full2meta-meta2full.R
 9abdaee5913614655290f67337fcd4de *inst/tests/test-get.idr-get-prob-get.IDR2.R
-fc659c37e8ee0c6c3c19020a1310a94b *inst/tests/test-is.theta.R
+ade5774d8a7a2b385eef8307ffdd305a *inst/tests/test-is.theta.R
 9bfa1172fe930279ec3c9471bb2b210a *inst/tests/test-logit-inv.logit.R
 f4c3b57c5d1e6b3ca928b7e132925ba7 *inst/tests/test-meta.gmcm.loglik.R
 63670831f4574faad3eb812f8a378f4a *inst/tests/test-pgmm.marginal.R
