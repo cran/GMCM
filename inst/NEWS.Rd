@@ -2,9 +2,20 @@
 \title{News for Package \pkg{GMCM}}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in version 1.2}{
+  \itemize{
+    \item Added the GMCM package vignette. The article is to appear in the
+      Journal of Statistical Software.
+    \item \code{rtheta} has been updated substantially to allow for finer and
+      more explicit control if needed. Default is the old behavior.
+    \item Documentation has improved.
+  }
+}
+
 \section{Changes in version 1.1.1}{
   \itemize{
-    \item Fill
+    \item Fixed a small testing issue on CRAN for old R versions.
+      (Used \code{anyNA} on R versions older than 3.1.0).
   }
 }
 
@@ -18,7 +29,7 @@
     \item \cpkg{GMCM} is no longer dependent on the \cpkg{mvtnorm} package.
       \cpkg{GMCM} now features faster simulation of data.
     \item Functions \code{rmvnormal} and \code{dmvnormal} are now exported and
-      visible to the user. These are now both implemented in Rcpp
+      visible to the user. These are now both implemented in \cpkg{Rcpp}
       and are faster versions of \code{rmvnorm} and
       \code{dmvnorm} from \cpkg{mvtnorm}.
     \item \cpkg{GMCM} is now using \cpkg{testthat} for automated

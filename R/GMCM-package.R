@@ -13,8 +13,8 @@
 #'   function \code{\link{fit.meta.GMCM}} is used to identify the maximum
 #'   likelihood estimate of the special Gaussian mixture copula model (GMCM)
 #'   defined by Li et al. (2011). The function \code{\link{get.IDR}}
-#'   computes the local and adjusted Irreprodcible Discovery Rates defined
-#'   by Li et al. (2011) to determine the level of reproduciblity.
+#'   computes the local and adjusted Irreproducible Discovery Rates defined
+#'   by Li et al. (2011) to determine the level of reproducibility.
 #'
 #'   Tewari et. al. (2011) proposed using GMCMs as an general unsupervised
 #'   clustering tool. If such a general unsupervised clustering is needed, like
@@ -66,10 +66,10 @@
 #' # Visualizing P-values and the ranked and scaled P-values
 #' \dontrun{
 #' par(mfrow = c(1,2))
-#' plot(u133VsExon, cex = 0.5, pch = 4, col = "tomato", main = "P-values"
-#'      xlab = "P   (U133)", ylab = "P   (Exon)"
+#' plot(u133VsExon, cex = 0.5, pch = 4, col = "tomato", main = "P-values",
+#'      xlab = "P   (U133)", ylab = "P   (Exon)")
 #' plot(uhat, cex = 0.5, pch = 4, col = "tomato", main = "Ranked P-values",
-#'      xlab = "rank(1-P)   (U133)", ylab = "rank(1-P)   (Exon)"
+#'      xlab = "rank(1-P)   (U133)", ylab = "rank(1-P)   (Exon)")
 #' }
 #'
 #' # Fitting using BFGS
@@ -85,15 +85,15 @@
 #' par(mfrow = c(1,2))
 #' plot(u133VsExon, cex = 0.5, pch = 4, main = "Classified genes",
 #'      col = c("tomato", "steelblue")[idr$K],
-#'      xlab = "P   (U133)", ylab = "P   (Exon)")
-#'   plot(uhat, cex = 0.5, pch = 4, main = "Classified genes",
-#'        col = c("tomato", "steelblue")[idr$K],
-#'        xlab = "rank(1-P)   (U133)", ylab = "rank(1-P)   (Exon)")
+#'      xlab = "P-value (U133)", ylab = "P-value (Exon)")
+#' plot(uhat, cex = 0.5, pch = 4, main = "Classified genes",
+#'      col = c("tomato", "steelblue")[idr$K],
+#'      xlab = "rank(1-P) (U133)", ylab = "rank(1-P) (Exon)")
 #' }
 NULL
 
 
-#' Reproduciblity between U133 plus 2 and Exon microarrays
+#' Reproducibility between U133 plus 2 and Exon microarrays
 #'
 #' This dataset contains a \code{data.frame} of unadjusted P-values for
 #' differential expression between germinal center cells and other B-cells
@@ -114,18 +114,17 @@ NULL
 #'
 #' @author Anders Ellern Bilgrau <abilgrau (at) math.aau.dk>
 #' @references
-#'   Bergkvist, Kim Steve, Mette Nyegaard, Martin Boegsted, Alexander Schmitz,
-#'   Julie Stoeve Boedker, Simon Mylius Rasmussen, Martin Perez-Andres et al.
-#'   "Validation and implementation of a method for microarray gene expression
-#'   profiling of minor B-cell subpopulations in man."
-#'   BMC immunology 15, no. 1 (2014): 3.
+#' Bergkvist, Kim Steve, Mette Nyegaard, Martin Boegsted, Alexander Schmitz,
+#' Julie Stoeve Boedker, Simon Mylius Rasmussen, Martin Perez-Andres et al.
+#' (2014). "Validation and Implementation of a Method for Microarray Gene
+#' Expression Profiling of Minor B-Cell Subpopulations in Man".
+#' BMC immunology, 15(1), 3.
 #'
-#'   Rasmussen SM, Bilgrau AE, Schmitz A, Falgreen S, Bergkvist KS, Tramm AM,
-#'   Baech J, Jacobsen CL, Gaihede M, Kjeldsen MK, Boedker JS, Dybkaer K,
-#'   Boegsted M, Johnsen HE (2014).
-#'   "Stable Phenotype Of B-Cell Subsets Following Cryopreservation and Thawing
-#'   of Normal Human Lymphocytes Stored in a Tissue Biobank."
-#'   Cytometry Part B: Clinical Cytometry. ISSN 1552-4957.
+#' Rasmussen SM, Bilgrau AE, Schmitz A, Falgreen S, Bergkvist KS, Tramm AM,
+#' Baech J, Jacobsen CL, Gaihede M, Kjeldsen MK, Boedker JS, Dybkaer K,
+#' Boegsted M, Johnsen HE (2015). "Stable Phenotype Of B-Cell Subsets Following
+#' Cryopreservation and Thawing of Normal Human Lymphocytes Stored in a Tissue
+#' Biobank." Cytometry Part B: Clinical Cytometry, 88(1), 40-49.
 #' @keywords datasets, data
 #' @examples
 #' data(u133VsExon)
@@ -139,7 +138,7 @@ NULL
 NULL
 
 
-#' Reproduciblity between Fresh and Frozen B-cell subtypes
+#' Reproducibility between Fresh and Frozen B-cell subtypes
 #'
 #' This dataset contains a \code{data.frame} of \eqn{t}-scores (from a Linear
 #' mixed effects model) and \eqn{p}-values for
@@ -157,7 +156,7 @@ NULL
 #'
 #' @docType data
 #' @name freshVsFrozen
-#' @details Further details can be found in Rasmussen and Bilgrau et al. (2014).
+#' @details Further details can be found in Rasmussen and Bilgrau et al. (2015).
 #' @format The format of the \code{data.frame} is:
 #'
 #'  \code{'data.frame':  18708 obs. of  6 variables:}\cr
@@ -170,13 +169,11 @@ NULL
 #'
 #' @author Anders Ellern Bilgrau <abilgrau (at) math.aau.dk>
 #' @references
-#'   Rasmussen SM, Bilgrau AE, Schmitz A, Falgreen S, Bergkvist KS, Tramm AM,
-#'   Baech J, Jacobsen CL, Gaihede M, Kjeldsen MK, Boedker JS, Dybkaer K,
-#'   Boegsted M, Johnsen HE (2014).
-#'   "Stable Phenotype Of B-Cell Subsets Following Cryopreservation and Thawing
-#'   of Normal Human Lymphocytes Stored in a Tissue Biobank."
-#'   Cytometry Part B: Clinical Cytometry. ISSN 1552-4957.
-#'   doi:10.1002/cytob.21192. URL http://dx.doi.org/10. 1002/cytob.21192.
+#' Rasmussen SM, Bilgrau AE, Schmitz A, Falgreen S, Bergkvist KS, Tramm AM,
+#' Baech J, Jacobsen CL, Gaihede M, Kjeldsen MK, Boedker JS, Dybkaer K,
+#' Boegsted M, Johnsen HE (2015). "Stable Phenotype Of B-Cell Subsets Following
+#' Cryopreservation and Thawing of Normal Human Lymphocytes Stored in a Tissue
+#' Biobank." Cytometry Part B: Clinical Cytometry, 88(1), 40-49.
 #' @keywords datasets, data
 #' @examples
 #' data(freshVsFrozen)

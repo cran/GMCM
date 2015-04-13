@@ -25,6 +25,10 @@
 #' theta4 <- rtheta(d = 10, m = 10)
 #' theta4$sigma$comp1[1, 1] <- 0  # Destroy positive semi-definiteness
 #' is.theta(theta4)
+#'
+#' theta5 <- rtheta()
+#' names(theta5) <- c("m", "d", "prop", "mu", "sigmas") # Incorrect names
+#' is.theta(theta5)
 #' @export
 is.theta <- function(theta) {
   # Testing structure of theta
@@ -70,19 +74,22 @@ is.theta <- function(theta) {
   }
   if (!all(c(sapply(theta[[5]], dim)) ==  theta[[2]])) {
     warning("The covariance matrices in theta[[5]] does not have dimensions ",
-            theta[[2]], "times", theta[[2]], " as given by theta[[2]].")
+            theta[[2]], " times ", theta[[2]], " as given by theta[[2]].")
+    return(FALSE)
+  }
+  if (!all(sapply(theta[[5]], isSymmetric))) {
+    warning("Not all covariance matrices are symmetric.")
     return(FALSE)
   }
   is.PosDef <- function(x) {
     all(eigen(x)$values >= 0)
   }
-
-  if (!all(sapply(theta[[5]], isSymmetric))) {
-    warning("Not all covariance matrices are symmetric.")
-    return(FALSE)
-  }
   if (!all(sapply(theta[[5]], is.PosDef))) {
     warning("Not all covariance matrices are postive semi-definite.")
+    return(FALSE)
+  }
+  if (!identical(names(theta), c("m", "d", "pie", "mu", "sigma"))) {
+    warning('names(theta) does not equal c("m", "d", "pie", "mu", "sigma")')
     return(FALSE)
   }
   return(TRUE)
