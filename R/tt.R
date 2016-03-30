@@ -1,4 +1,4 @@
-#' Reparametrization of GMCM parameters.
+#' Reparametrization of GMCM parameters
 #'
 #' These functions map the four GMCM parameters in the model of Li et. al.
 #' (2011) and Tewari et. al. (2011) onto the real line and back. The mixture
@@ -28,7 +28,7 @@
 #'   length 4.
 #'
 #'   \code{tt} returns \code{par} as described above.
-#' @author Anders Ellern Bilgrau (abilgrau@@math.aau.dk)
+#' @author Anders Ellern Bilgrau <anders.ellern.bilgrau@@gmail.com>
 #' @references
 #'   Li, Q., Brown, J. B. J. B., Huang, H., & Bickel, P. J. (2011).
 #'   Measuring reproducibility of high-throughput experiments. The Annals of
