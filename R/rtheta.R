@@ -79,6 +79,10 @@
 #' test <- rtheta()
 #' is.theta(test)
 #'
+#' summary(test)
+#' print(test)
+#' plot(test)
+#'
 #' \dontrun{
 #' A <- SimulateGMMData(n = 100, rtheta(d = 2, method = "EqualSpherical"))
 #' plot(A$z, col = A$K, pch = A$K, asp = 1)
@@ -142,5 +146,7 @@ rtheta <- function(m = 3, d = 2,
   }
   names(pie)   <- paste("pie", seq_len(m), sep = "")
   names(sigma) <- names(mu) <- paste("comp", seq_len(m), sep = "")
-  return(list(m = m, d = d, pie = pie, mu = mu, sigma = sigma))
+  out <- structure(list(m = m, d = d, pie = pie, mu = mu, sigma = sigma),
+                   class = "theta")
+  return(out)
 }
