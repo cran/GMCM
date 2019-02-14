@@ -4,14 +4,19 @@
 \alias{EMAlgorithm}
 \title{EM algorithm for Gaussian mixture models}
 \usage{
-EMAlgorithm(x, theta, eps = 1e-06, max.ite = 1e+05,
+EMAlgorithm(x, theta, m, eps = 1e-06, max.ite = 1e+05,
   trace.theta = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{x}{A matrix of observations where rows correspond to features and
-columns to experiments.}
+\item{x}{A \code{matrix} of observations where each row correspond to an
+observation and each columns to a feature/variable.}
 
-\item{theta}{A list of parameters as described in \code{\link{rtheta}}.}
+\item{theta}{A list of parameters of class \code{theta} as described in
+\code{\link{rtheta}}.
+Optional. If not provided \code{m} should be given.}
+
+\item{m}{\code{numeric}. The number of components if \code{theta} is not
+supplied.}
 
 \item{eps}{The maximal required difference in successive likelihoods to
 establish convergence.}
@@ -37,14 +42,22 @@ The regular expectation-maximization algorithm for general multivariate
 Gaussian mixture models.
 }
 \details{
-Though not as versatile, the algorithm can be a faster alternative to
-\code{Mclust} in the \code{mclust}-package.
+Though not as versatile, the algorithm can be a faster alternative
+to \code{Mclust} in the \code{mclust}-package. If \code{theta} is not given,
+a k-means clustering is used to determine the initial \code{theta}.
 }
 \examples{
+set.seed(3)
+true.theta <- rtheta(d = 2, m = 3, method = "old")
+true.theta$sigma <- lapply(true.theta$sigma, cov2cor) # Scale
+\dontrun{
+plot(true.theta, nlevels = 20, add.ellipses = TRUE)
+}
 
-set.seed(10)
-data <- SimulateGMCMData(n = 1000, d = 2, m = 3)
+data <- SimulateGMCMData(n = 1000, theta = true.theta)
 start.theta <- rtheta(d = 2, m = 3)
+start.theta$mu <- t(kmeans(data$z, 3)$centers) # More sensible location estimates
+start.theta <- as.theta(start.theta) # Coerce the matrix to a list
 res <- GMCM:::EMAlgorithm(data$z, theta = start.theta)
 
 par(mfrow = c(1,2))
@@ -52,7 +65,6 @@ plot(data$z, cex = 0.5, pch = 16, main = "Simulated data",
      col = rainbow(3)[data$K])
 plot(data$z, cex = 0.5, pch = 16, main = "GMM clustering",
      col = rainbow(3)[apply(res$kappa,1,which.max)])
-
 }
 \seealso{
 \code{\link{rtheta}}, \code{\link{PseudoEMAlgorithm}}

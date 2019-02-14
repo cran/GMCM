@@ -13,11 +13,25 @@ as.theta(x)
 A theta object. See \code{\link{rtheta}}.
 }
 \description{
-At the moment, only the class is added.
+A function that attempts to coerce a theta-like list into a proper formatted
+object of class \code{theta}.
+}
+\details{
+First, if the list is of length 3 and not 5, the number of components and
+dimension is assumed to be missing and added.
+Secondly, the class is added.
+Thirdly, names are added if needed.
+Next, matrix means and array covariances are
+coerced to list form.
+Covariances on array form are assumed to be \code{d} by \code{d} by \code{m}.
+Means on matrix form are as assumed to be \code{d} by \code{m}. I.e.
+rows correspond to the dimensions and columns to components, or the mean vectors
+as column vectors.
+Finally, the sum constriant of 1 for the mixture proportions is enforced.
 }
 \examples{
 m <- 2
-d <- 2
+d <- 3
 x <- list(m = m,
           d = d,
           pie = c(0.5, 0.5),
@@ -26,4 +40,13 @@ x <- list(m = m,
 print(x)
 theta <- as.theta(x)
 print(theta)
+
+x2 <- unname(list( # Unnamed
+  # missing m and d
+  pie = c(1, 1),   # Does not sum to 1
+  mu = simplify2array(list(comp1=rep(0,d), comp2=rep(1,d))), # matrix, not a list
+  sigma = simplify2array(list(comp1=diag(d), comp2=diag(d)))  # array, not a list
+))
+theta2 <- as.theta(x2)
+print(theta2)
 }
