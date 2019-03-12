@@ -1,4 +1,4 @@
-3682dac8bbff2c7e4af882f32dbf743e *DESCRIPTION
+908cc8f39daa500e53481313c830d92f *DESCRIPTION
 8a7e6bf9ae7d8ca18bd2bfe694b81528 *NAMESPACE
 dff4caf81d6821f42adab214a8d5d3bb *R/EMAlgortihm.R
 01886b0422eaa2f4c3dcf6140aca9bde *R/EStep.R
@@ -46,10 +46,10 @@ faa84b4958d6e131449f094b47e2140e *data/datalist
 0c34d5f47b832f02ef4f29d144a4c4f6 *data/freshVsFrozen.RData
 f58503a03ef51c9ed46b387446ab80c9 *data/u133VsExon.RData
 e4b8529556ebccea915db8f89cacbee6 *inst/CITATION
-7ce1e896da3e3d235dedb5602fdeb43e *inst/NEWS.Rd
+b6bce8c974cf128f8bcaaae9cfdf488e *inst/NEWS.Rd
 a23d245059c7a5fcf88c3e889be4fb43 *inst/doc/GMCM-JStatSoft.R
 36edf647d4dff26502b6af5033724a3e *inst/doc/GMCM-JStatSoft.Rnw
-61a7336d48fa8aa37f90437016e1ac9c *inst/doc/GMCM-JStatSoft.pdf
+929061a33bcbc179df365660dcc5dd02 *inst/doc/GMCM-JStatSoft.pdf
 e77150274de8b9be75198b1e871bdad8 *man/EMAlgorithm.Rd
 e541d7989307b8215322bd06a6173157 *man/EStep.Rd
 6f25b9f4b9c4aa822043e500e01a6125 *man/GMCM-package.Rd
@@ -81,7 +81,7 @@ cb5168a218d354118d13c33986d4517e *man/rho.transform.Rd
 acc488cb707a65859721333406262b3d *src/Makevars.win
 d65096ee19f6c6e5e4495423b7097bcd *src/RcppExports.cpp
 1ab298494d93f9e1616696a46dbff395 *tests/test-all.R
-0dae87ce7f4c4c30c9f23358b391d2cc *tests/testthat/test-EMAlgorithm.R
+ff677d72602e719710bf035358f619d5 *tests/testthat/test-EMAlgorithm.R
 f5904750a8686ee569d6374f3fd494c7 *tests/testthat/test-EStep.R
 637534077cfc18fdabdd87859180ed06 *tests/testthat/test-MStep.R
 78db1b76ffad24b6db82c4ff9947e83c *tests/testthat/test-PseudoEMAlgorithm.R
