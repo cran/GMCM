@@ -14,7 +14,7 @@
 #' Means on matrix form are as assumed to be \code{d} by \code{m}. I.e.
 #' rows correspond to the dimensions and columns to components, or the mean vectors
 #' as column vectors.
-#' Finally, the sum constriant of 1 for the mixture proportions is enforced.
+#' Finally, the sum constraint of 1 for the mixture proportions is enforced.
 #'
 #' @param x A theta-like object that can be coerced.
 #' @return A theta object. See \code{\link{rtheta}}.
@@ -40,6 +40,9 @@
 #' print(theta2)
 #' @export
 as.theta <- function(x) {
+  # Discard if any entries are null
+  x <- x[!sapply(x, is.null)]
+
   # Reconstruct length to 5
   if (length(x) == 3) {
       m <- length(x[[1]]) # x[[1]] assumed to be "pie"
@@ -88,6 +91,30 @@ as.theta <- function(x) {
     warning("x$pie rescaled to enforce sum constraint of 1")
   }
 
+  # Handle sigma names
+  for (k in seq_len(x$m)) {
+    sigma_k <- x$sigma[[k]]
+
+    # Rownames present colnames missing
+    if (is.null(rownames(sigma_k)) && !is.null(colnames(sigma_k))) {
+      rownames(sigma_k) <- colnames(sigma_k)
+    }
+
+    # Colnames present rownames missing
+    if (!is.null(rownames(sigma_k)) && is.null(colnames(sigma_k))) {
+      colnames(sigma_k) <- rownames(sigma_k)
+    }
+
+    # If both are present, but unequal
+    if (!is.null(rownames(sigma_k)) && !is.null(colnames(sigma_k)) &&
+        !identical(rownames(sigma_k), colnames(sigma_k))) {
+      rownames(sigma_k) <- colnames(sigma_k)
+    }
+
+    x$sigma[[k]] <- sigma_k
+  }
+
+  # Test if coercion is complete
   if (is.theta(x)) {
     return(x)
   } else {

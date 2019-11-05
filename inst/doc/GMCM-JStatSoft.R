@@ -1,4 +1,4 @@
-## ----initalization, echo = FALSE, results = 'hide', message = FALSE----
+## ----initialization, echo = FALSE, results = 'hide', message = FALSE----
 library("knitr")
 opts_chunk$set(concordance = TRUE, tidy = FALSE,
                strip.white = TRUE, dev = 'pdf',
@@ -27,12 +27,12 @@ recompute <- FALSE
 # Set recompute to TRUE if saved data is to be recomputed and not just loaded.
 # WARNING! Setting will increase the running time to ~ 5 days on a regular
 # laptop (depending on the use of parallel computations).
-# Alternatively, "saved.RData" can be deleted or particular objects can
+# Alternatively, "cache.RData" can be deleted or particular objects can
 # be removed using rm() to force the recomputation
 
 # We load all saved objects that are computationally time consuming
-if (file.exists("saved.RData")) {
-  load("saved.RData")
+if (file.exists("cache.RData")) {
+  load("cache.RData")
 }
 
 
@@ -294,7 +294,7 @@ if (!exists("speed.res") | recompute) {
     return(res)
   }
 
-  resave(speed.res, file = "saved.RData")
+  resave(speed.res, file = "cache.RData")
 }
 
 # Print the results
@@ -308,7 +308,7 @@ if (!exists("speed.res") | recompute) {
 ################################################################################
 
 # The structure of this section is as follows:
-# 1. Some initalization of parameters and aux. functions
+# 1. Some initialization of parameters and aux. functions
 # 2. Simulate the "n.sims" datasets and starting parameters
 # 3. Fit the special model using NM to the generated datasets
 # 4. Fit the special model using SANN ...
@@ -414,7 +414,7 @@ if (!exists("simulation.res.NM") | recompute) {
                   "ite" = ite, "acc" = acc, "time" = time))
     }
 
-  resave(simulation.res.NM, file = "saved.RData")
+  resave(simulation.res.NM, file = "cache.RData")
   cat("\n## Nelder-Mead done ##\n\n")
   cat("Time:", (proc.time()-st.tot)[3] %/% 60 ,"min ellapsed\n")
 }
@@ -458,7 +458,7 @@ if (!exists("simulation.res.SANN") | recompute) {
                   "acc" = acc, "time" = time))
     }
 
-  resave(simulation.res.SANN, file = "saved.RData")
+  resave(simulation.res.SANN, file = "cache.RData")
   cat("\n## SANN done ##\n\n")
   cat("Time:", (proc.time()-st.tot)[3] %/% 60 ,"min ellapsed\n")
 }
@@ -497,7 +497,7 @@ if (!exists("simulation.res.LBFGS") | recompute) {
                   "acc" = acc, "time" = time))
     }
   cat("\n## L-BFGS done ##\n\n")
-  resave(simulation.res.LBFGS, file = "saved.RData")
+  resave(simulation.res.LBFGS, file = "cache.RData")
 }
 
 #
@@ -534,7 +534,7 @@ if (!exists("simulation.res.LBFGSB") | recompute) {
                   "ite" = ite, "acc" = acc, "time" = time))
     }
   cat("\n\n## L-BFGS-B done ##\n\n\n")
-  resave(simulation.res.LBFGSB, file = "saved.RData")
+  resave(simulation.res.LBFGSB, file = "cache.RData")
 }
 
 
@@ -570,7 +570,7 @@ if (!exists("simulation.res.PEM") | recompute) {
                   "ite" = ite, "acc" = acc, "time" = time))
     }
   cat("\n\n## PEM in GMCM done ##\n\n\n")
-  resave(simulation.res.PEM, file = "saved.RData")
+  resave(simulation.res.PEM, file = "cache.RData")
 }
 
 #
@@ -609,7 +609,7 @@ if (!exists("simulation.res.PEMidr") | recompute) {
                   "ite" = ite, "acc" = acc, "time" = time))
     }
   cat("\n## PEM in idr done ##\n\n")
-  resave(simulation.res.PEMidr, file = "saved.RData")
+  resave(simulation.res.PEMidr, file = "cache.RData")
 }
 
 
@@ -818,7 +818,7 @@ if (!exists("bcell.ite") | recompute) {
       bcell.ite <- tmp.bcell.ite
     }
   }
-  resave(bcell.ite, file = "saved.RData")
+  resave(bcell.ite, file = "cache.RData")
 }
 
 # Extract the parameters and number of iterations
@@ -919,7 +919,7 @@ pic.rgbmat <- cbind(red   = c(pic[,,1]),
 # Segmentation using GMCM
 #
 
-gmcm.file <- gsub(".jpg$", ".gmcm.RData", fig7.file)
+gmcm.file <- gsub(".jpg$", "_gmcm.RData", fig7.file)
 # Approximate runtime: 50 minutes
 if (!exists("seg.res.gmcm") | recompute) {
   best.loglik <- -Inf
@@ -957,7 +957,7 @@ if (!exists("seg.res.gmcm") | recompute) {
 
   # Save results
   seg.res.gmcm <- best.seg.res.gmcm
-  resave(seg.res.gmcm, file = "saved.RData")
+  resave(seg.res.gmcm, file = "cache.RData")
 }
 
 class(seg.res.gmcm) <- "theta" # HOTFIX
@@ -984,13 +984,13 @@ seg.gmcm[,,3] <- matrix(gmcm.rgbmat[,3], nn, mm)
 # Segmentation using K-means clustering
 #
 
-km.file <- gsub(".jpg$", ".km.RData", fig7.file)
+km.file <- gsub(".jpg$", "_km.RData", fig7.file)
 if (!exists("seg.res.km") | recompute) {
   system.time(
     seg.res.km <-
       kmeans(x = pic.rgbmat, centers = n.cols, iter.max = 100)
   )
-  resave(seg.res.km, file = "saved.RData")
+  resave(seg.res.km, file = "cache.RData")
 }
 
 km.rgbmat <- seg.res.km$centers[seg.res.km$cluster, ]
@@ -1054,7 +1054,7 @@ if (!exists("best.par.freshfroz") | recompute) {
     cat("\n")
   }
   best.par.freshfroz <- best.par
-  resave(best.par.freshfroz, file = "saved.RData")
+  resave(best.par.freshfroz, file = "cache.RData")
 }
 
 # Get idr values
